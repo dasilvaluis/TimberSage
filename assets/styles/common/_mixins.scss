@@ -26,54 +26,51 @@
 
 
 @mixin min-small {
-    @media (min-width: $small) { @content; }
+    @media (min-width: $breakpoint-small) { @content; }
 }
 @mixin max-small {
-    @media (max-width: $small) { @content; }
+    @media (max-width: $breakpoint-small) { @content; }
 }
 @mixin min-medium {
-    @media (min-width: $medium) { @content; }
+    @media (min-width: $breakpoint-medium) { @content; }
 }
 @mixin max-medium {
-    @media (max-width: $medium) { @content; }
+    @media (max-width: $breakpoint-medium) { @content; }
 }
 @mixin min-large {
-    @media (min-width: $large) { @content; }
+    @media (min-width: $breakpoint-large) { @content; }
 }
 @mixin max-large {
-    @media (max-width: $large) { @content; }
+    @media (max-width: $breakpoint-large) { @content; }
 }
 @mixin min-xlarge {
-    @media (min-width: $xlarge) { @content; }
+    @media (min-width: $breakpoint-xlarge) { @content; }
 }
 @mixin max-xlarge {
-    @media (max-width: $xlarge) { @content; }
+    @media (max-width: $breakpoint-xlarge) { @content; }
 }
 
 @mixin small-medium {
-    @media (max-width: $medium) and (min-width: $small) { @content; }
+    @media (max-width: $breakpoint-medium) and (min-width: $breakpoint-small) { @content; }
 }
 @mixin medium-large {
-    @media (max-width: $large) and (min-width: $medium) { @content; }
+    @media (max-width: $breakpoint-large) and (min-width: $breakpoint-medium) { @content; }
 }
 @mixin large-xlarge {
-    @media (max-width: $xlarge) and (min-width: $large) { @content; }
+    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-large) { @content; }
 }
-
 @mixin small-large {
-    @media (max-width: $large) and (min-width: $small) { @content; }
+    @media (max-width: $breakpoint-large) and (min-width: $breakpoint-small) { @content; }
 }
 @mixin small-xlarge {
-    @media (max-width: $xlarge) and (min-width: $small) { @content; }
+    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-small) { @content; }
 }
-
 @mixin medium-xlarge {
-    @media (max-width: $xlarge) and (min-width: $medium) { @content; }
+    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-medium) { @content; }
 }
 
 
-
-
+// Use span mixin from sass with media queries with Uikit breakpoints
 @mixin span-min-small($span-args) {
     @include min-small { @include span($span-args); }
 }
