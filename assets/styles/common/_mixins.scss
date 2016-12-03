@@ -11,48 +11,93 @@
     }
 }
 
+
+// MEDIA MIXINS
+
+@mixin media($max, $min) {
+    @media (max-width: $max) and (min-width: $min) { @content; }
+}
+@mixin media-min($min) {
+    @media (max-width: $min) { @content; }
+}
+@mixin media-max($max) {
+    @media (max-width: $max) { @content; }
+}
+
+
 @mixin min-small {
-    @media (min-width: $breakpoint-small) { @content; }
+    @media (min-width: $small) { @content; }
 }
 @mixin max-small {
-    @media (max-width: $breakpoint-small) { @content; }
+    @media (max-width: $small) { @content; }
 }
 @mixin min-medium {
-    @media (min-width: $breakpoint-medium) { @content; }
+    @media (min-width: $medium) { @content; }
 }
 @mixin max-medium {
-    @media (max-width: $breakpoint-medium) { @content; }
+    @media (max-width: $medium) { @content; }
 }
 @mixin min-large {
-    @media (min-width: $breakpoint-large) { @content; }
+    @media (min-width: $large) { @content; }
 }
 @mixin max-large {
-    @media (max-width: $breakpoint-large) { @content; }
+    @media (max-width: $large) { @content; }
 }
 @mixin min-xlarge {
-    @media (min-width: $breakpoint-xlarge) { @content; }
+    @media (min-width: $xlarge) { @content; }
 }
 @mixin max-xlarge {
-    @media (max-width: $breakpoint-xlarge) { @content; }
+    @media (max-width: $xlarge) { @content; }
 }
 
 @mixin small-medium {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) { @content; }
+    @media (max-width: $medium) and (min-width: $small) { @content; }
 }
 @mixin medium-large {
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) { @content; }
+    @media (max-width: $large) and (min-width: $medium) { @content; }
 }
 @mixin large-xlarge {
-    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (max-width: $xlarge) and (min-width: $large) { @content; }
 }
 
 @mixin small-large {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) { @content; }
+    @media (max-width: $large) and (min-width: $small) { @content; }
 }
 @mixin small-xlarge {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (max-width: $xlarge) and (min-width: $small) { @content; }
 }
 
 @mixin medium-xlarge {
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (max-width: $xlarge) and (min-width: $medium) { @content; }
+}
+
+
+
+
+@mixin span-min-small($span-args) {
+    @include min-small { @include span($span-args); }
+}
+@mixin span-max-small($span-args) {
+    @include max-small { @include span($span-args); }
+}
+
+@mixin span-min-medium($span-args) {
+    @include min-medium { @include span($span-args); }
+}
+@mixin span-max-medium($span-args) {
+    @include max-medium { @include span($span-args); }
+}
+
+@mixin span-min-large($span-args) {
+    @include min-large { @include span($span-args); }
+}
+@mixin span-max-large($span-args) {
+    @include max-large { @include span($span-args); }
+}
+
+@mixin span-min-xlarge($span-args) {
+    @include min-xlarge { @include span($span-args); }
+}
+@mixin span-max-xlarge($span-args) {
+    @include max-xlarge { @include span($span-args); }
 }
