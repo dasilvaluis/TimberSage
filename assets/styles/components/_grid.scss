@@ -1,7 +1,25 @@
 // Grid system
-.main {
-  
-}
-.sidebar {
-  
+
+$screen-width--max-large: 95%;
+$screen-width--large-xlarge: $breakpoint-large * 0.75;
+$screen-width--min-xlarge: $breakpoint-xlarge * 0.75;
+
+
+.container {
+
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include clearfix;
+
+    @include max-large {
+    	width: 95%;
+    }
+    @include large-xlarge {
+        width: $screen-width--large-xlarge;
+    }
+    @include min-xlarge {
+        width: $screen-width--min-xlarge;
+    }
 }
