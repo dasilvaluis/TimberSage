@@ -33,6 +33,7 @@ For more installation notes, refer to the [Install gulp and Bower](#install-gulp
 * [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
 * `assets/config.json` for the JSON file based asset pipeline
 * [Uikit](https://getuikit.com/)
+* [Susy](http://sass-lang.com/)
 * [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
 * ARIA roles and microformats
 * Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
