@@ -1,0 +1,32 @@
+{
+    "dependencies": {
+        "js": [
+            "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/uikit/dist/js/uikit.min.js",
+            "scripts/main.js"
+        ],
+        "css": [
+            "../node_modules/normalize.css/normalize.css",
+            "styles/main.scss"
+        ],
+        "fonts": [
+            "../node_modules/uikit/dist/fonts/FontAwesome.otf",
+            "../node_modules/uikit/dist/fonts/fontawesome-webfont.ttf",
+            "../node_modules/uikit/dist/fonts/fontawesome-webfont.woff",
+            "../node_modules/uikit/dist/fonts/fontawesome-webfont.woff2",
+            "fonts/**/*"
+        ],
+        "images": [
+            "images/**/*"
+        ]
+    },
+    "devUrl": "http://example.dev",
+    "paths": {
+        "source": "assets/",
+        "dist": "dist/"
+    },
+    "watch": [
+        "{lib,templates}/**/*.php", 
+        "*.php"
+    ]
+}
