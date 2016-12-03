@@ -55,11 +55,6 @@ var revManifest = paths.dist + 'assets.json';
 var cssTasks = function(filename) {
   return lazypipe()
     .pipe(function() {
-      return gulpif(!enabled.failStyleTask, plumber({
-          errorHandler: notify.onError('Error: <%= error.message %>')
-      }));
-    })
-    .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
     })
     .pipe(function() {
@@ -105,11 +100,6 @@ var cssTasks = function(filename) {
 // ```
 var jsTasks = function(filename) {
   return lazypipe()
-    .pipe(function() {
-      return gulpif(!enabled.failStyleTask, plumber({
-        errorHandler: notify.onError('Error: <%= error.message %>')
-      }));
-    })
     .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
     })
@@ -169,6 +159,9 @@ var writeToManifest = function(directory) {
 // raised. If the `--production` flag is set: this task will fail outright.
 gulp.task('styles', function() {
   return gulp.src(sources(deps.css))
+    .pipe(gulpif(!enabled.failStyleTask, plumber({
+          errorHandler: notify.onError('Error: <%= error.message %>')
+    })))
     .pipe(cssTasks('main.css'))
     .pipe(writeToManifest('styles'));
 });
