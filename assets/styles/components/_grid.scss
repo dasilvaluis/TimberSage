@@ -1,10 +1,4 @@
-// Grid system
-
-$screen-width--max-large: 95%;
-$screen-width--large-xlarge: $breakpoint-large * 0.75;
-$screen-width--min-xlarge: $breakpoint-xlarge * 0.75;
-
-
+// Grid elements
 .container {
 
     max-width: 100%;
@@ -13,13 +7,32 @@ $screen-width--min-xlarge: $breakpoint-xlarge * 0.75;
 
     @include clearfix;
 
-    @include max-large {
-    	width: 95%;
+    @include max-small {
+    	width: $screen-width--max-small;
+    }
+    @include small-medium {
+        width: $screen-width--small-medium;
+    }
+    @include medium-large {
+        width: $screen-width--medium-large;
     }
     @include large-xlarge {
         width: $screen-width--large-xlarge;
     }
     @include min-xlarge {
         width: $screen-width--min-xlarge;
+    }
+
+}
+
+
+.sidebar-primary {
+
+    .main {
+        @include span-min-medium(6);
+    }
+    
+    .sidebar {
+        @include span-min-medium(last 4);
     }
 }
