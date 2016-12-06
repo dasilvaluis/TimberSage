@@ -38,7 +38,7 @@ var enabled = {
 };
 
 
-var config  = require('./assets/config.json'),
+var config  = require('./config.json'),
     deps    = config.dependencies,
     paths   = config.paths;
 
@@ -158,7 +158,7 @@ var writeToManifest = function(directory) {
 // By default this task will only log a warning if a precompiler error is
 // raised. If the `--production` flag is set: this task will fail outright.
 gulp.task('styles', function() {
-  return gulp.src(sources(deps.css))
+  return gulp.src(deps.css)
     .pipe(gulpif(!enabled.failStyleTask, plumber({
           errorHandler: notify.onError('Error: <%= error.message %>')
     })))
@@ -170,7 +170,7 @@ gulp.task('styles', function() {
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
 gulp.task('scripts', ['jshint'], function() {
-  return gulp.src(sources(deps.js))
+  return gulp.src(deps.js)
     .pipe(jsTasks('main.js'))
     .pipe(writeToManifest('scripts'));
 });
@@ -179,7 +179,7 @@ gulp.task('scripts', ['jshint'], function() {
 // `gulp fonts` - Grabs all the fonts and outputs them in a flattened directory
 // structure. See: https://github.com/armed/gulp-flatten
 gulp.task('fonts', function() {
-  return gulp.src(sources(deps.fonts))
+  return gulp.src(deps.fonts)
     .pipe(flatten())
     .pipe(gulp.dest(paths.dist + 'fonts'))
     .pipe(browserSync.stream());
@@ -188,7 +188,7 @@ gulp.task('fonts', function() {
 // ### Images
 // `gulp images` - Run lossless compression on all the images.
 gulp.task('images', function() {
-  return gulp.src(sources(deps.images))
+  return gulp.src(deps.images)
     .pipe(imagemin({
       progressive: true,
       interlaced: true,
