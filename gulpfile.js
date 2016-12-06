@@ -201,7 +201,7 @@ gulp.task('images', function() {
 // ### JSHint
 // `gulp jshint` - Lints configuration JSON and project JS.
 gulp.task('jshint', function() {
-  return gulp.src(['gulpfile.js'].concat(deps.js))
+  return gulp.src(['gulpfile.js'].concat('assets/scripts/**/*'))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
