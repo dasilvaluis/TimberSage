@@ -18,7 +18,7 @@
     @media (max-width: $max) and (min-width: $min) { @content; }
 }
 @mixin media-min($min) {
-    @media (max-width: $min) { @content; }
+    @media (min-width: $min) { @content; }
 }
 @mixin media-max($max) {
     @media (max-width: $max) { @content; }
@@ -51,22 +51,24 @@
 }
 
 @mixin small-medium {
-    @media (max-width: $breakpoint-medium) and (min-width: $breakpoint-small) { @content; }
-}
-@mixin medium-large {
-    @media (max-width: $breakpoint-large) and (min-width: $breakpoint-medium) { @content; }
-}
-@mixin large-xlarge {
-    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-large) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) { @content; }
 }
 @mixin small-large {
-    @media (max-width: $breakpoint-large) and (min-width: $breakpoint-small) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) { @content; }
 }
 @mixin small-xlarge {
-    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-small) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-xlarge) { @content; }
+}
+
+@mixin medium-large {
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) { @content; }
 }
 @mixin medium-xlarge {
-    @media (max-width: $breakpoint-xlarge) and (min-width: $breakpoint-medium) { @content; }
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-xlarge) { @content; }
+}
+
+@mixin large-xlarge {
+    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge) { @content; }
 }
 
 
