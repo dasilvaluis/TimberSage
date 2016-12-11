@@ -201,7 +201,7 @@ gulp.task('images', function() {
 // ### JSHint
 // `gulp jshint` - Lints configuration JSON and project JS.
 gulp.task('jshint', function() {
-  return gulp.src(['gulpfile.js'].concat('assets/scripts/**/*'))
+  return gulp.src(['gulpfile.js', 'config.json'].concat(config.jslintFiles))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
@@ -227,7 +227,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch([paths.source + 'styles/**/*'], ['styles']);
-  gulp.watch([paths.source + 'scripts/**/*'], ['jshint', 'scripts']);
+  gulp.watch([paths.source + 'scripts/**/*'], ['scripts']);
   gulp.watch([paths.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([paths.source + 'images/**/*'], ['images']);
   gulp.watch(['assets/config.json'], ['build']);

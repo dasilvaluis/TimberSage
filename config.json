@@ -20,6 +20,9 @@
             "assets/images/**/*"
         ]
     },
+    "jslintFiles": [
+        "assets/scripts/main.js"
+    ],
     "devUrl": "http://example.dev/",
     "paths": {
         "source": "assets/",
