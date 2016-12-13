@@ -1,0 +1,34 @@
+// Grid elements
+.container {
+
+    @include container;
+    
+    @include max-small {
+    	width: $screen-width--max-small;
+    }
+    @include small-medium {
+        width: $screen-width--small-medium;
+    }
+    @include medium-large {
+        width: $screen-width--medium-large;
+    }
+    @include large-xlarge {
+        width: $screen-width--large-xlarge;
+    }
+    @include min-xlarge {
+        width: $screen-width--min-xlarge;
+    }
+
+}
+
+
+.sidebar-primary {
+
+    .main {
+        @include span-min-medium(6);
+    }
+    
+    .sidebar {
+        @include span-min-medium(last 4);
+    }
+}

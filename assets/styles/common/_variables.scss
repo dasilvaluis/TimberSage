@@ -1,0 +1,16 @@
+// Colors
+$brand-primary: #27ae60;
+$text-primary: #333;
+
+
+// Widths
+$screen-width--max-small: 95%;
+$screen-width--small-medium: 95%;
+$screen-width--medium-large: $breakpoint-medium * 0.8;
+$screen-width--large-xlarge: $breakpoint-large * 0.8;
+$screen-width--min-xlarge: $breakpoint-xlarge * 0.8;
+
+
+$susy: (
+  columns: 10,
+);
