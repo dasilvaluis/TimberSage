@@ -5,6 +5,7 @@ var cssNano       = require('gulp-cssnano');
 var sourcemaps    = require('gulp-sourcemaps');
 var concat        = require('gulp-concat');
 var notify        = require('gulp-notify');
+var moduleImporter = require('sass-module-importer');
 
 // ### CSS processing pipeline
 // Example
@@ -26,7 +27,8 @@ var cssTasks = function(filename) {
         outputStyle: 'nested', // libsass doesn't support expanded yet
         precision: 10,
         includePaths: ['.'],
-        errLogToConsole: !enabled.failStyleTask
+        errLogToConsole: !enabled.failStyleTask,
+        importer: moduleImporter()
       }));
     })
     .pipe(concat, filename)
