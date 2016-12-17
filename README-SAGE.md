@@ -4,6 +4,13 @@
 
 Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
 
+* Source: [https://github.com/roots/sage](https://github.com/roots/sage)
+* Homepage: [https://roots.io/sage/](https://roots.io/sage/)
+* Documentation: [https://roots.io/sage/docs/](https://roots.io/sage/docs/)
+* Twitter: [@rootswp](https://twitter.com/rootswp)
+* Newsletter: [Subscribe](http://roots.io/subscribe/)
+* Forum: [https://discourse.roots.io/](https://discourse.roots.io/)
+
 ## Requirements
 
 | Prerequisite    | How to check | How to install
@@ -11,6 +18,7 @@ Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and B
 | PHP >= 5.4.x    | `php -v`     | [php.net](http://php.net/manual/en/install.php) |
 | Node.js >= 4.5  | `node -v`    | [nodejs.org](http://nodejs.org/) |
 | gulp >= 3.8.10  | `gulp -v`    | `npm install -g gulp` |
+| Bower >= 1.3.12 | `bower -v`   | `npm install -g bower` |
 
 For more installation notes, refer to the [Install gulp and Bower](#install-gulp-and-bower) section in this document.
 
@@ -18,23 +26,36 @@ For more installation notes, refer to the [Install gulp and Bower](#install-gulp
 
 * [gulp](http://gulpjs.com/) build script that compiles both Sass and Less, checks for JavaScript errors, optimizes images, and concatenates and minifies files
 * [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
-* `assets/config.json` for the JSON file based asset pipeline
-* [Uikit](https://getuikit.com/)
-* [Susy](http://sass-lang.com/)
+* [Bower](http://bower.io/) for front-end package management
+* [asset-builder](https://github.com/austinpray/asset-builder) for the JSON file based asset pipeline
+* [Bootstrap](http://getbootstrap.com/)
 * [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
 * ARIA roles and microformats
 * Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
+* [Multilingual ready](https://roots.io/wpml/) and over 30 available [community translations](https://github.com/roots/sage-translations)
 
+Install the [Soil](https://github.com/roots/soil) plugin to enable additional features:
+
+* Cleaner output of `wp_head` and enqueued assets
+* Cleaner HTML output of navigation menus
+* Root relative URLs
+* Nice search (`/search/query/`)
+* Google CDN jQuery snippet from [HTML5 Boilerplate](http://html5boilerplate.com/)
+* Google Analytics snippet from [HTML5 Boilerplate](http://html5boilerplate.com/)
+
+See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
 
 ## Theme installation
 
-Install MySage by copying the project into a new folder within your WordPress themes directory.
+Install Sage by copying the project into a new folder within your WordPress themes directory.
+
+Make sure [Composer](https://getcomposer.org/download/) has been installed before moving on.
 
 Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
 
 ```shell
 # @ example.com/site/web/app/themes/
-$ git clone https://github.com/luism-s/mySage.git your-theme-name 8.5.0
+$ composer create-project roots/sage your-theme-name 8.5.0
 ```
 
 ## Theme setup
@@ -43,16 +64,17 @@ Edit `lib/setup.php` to enable or disable theme features, setup navigation menus
 
 ## Theme development
 
-Sage uses [gulp](http://gulpjs.com/) as its build system and [npm](https://www.npmjs.com/) to manage front-end packages.
+Sage uses [gulp](http://gulpjs.com/) as its build system and [Bower](http://bower.io/) to manage front-end packages.
 
-### Install gulp and NPM
+### Install gulp and Bower
 
 Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm: `npm install -g npm@latest`.
 
 From the command line:
 
-1. Install [gulp](http://gulpjs.com) and [npm](https://www.npmjs.com/)
+1. Install [gulp](http://gulpjs.com) and [Bower](http://bower.io/) globally with `npm install -g gulp bower`
 2. Navigate to the theme directory, then run `npm install`
+3. Run `bower install`
 
 You now have all the necessary dependencies to run the build process.
 
@@ -64,7 +86,7 @@ You now have all the necessary dependencies to run the build process.
 
 ### Using BrowserSync
 
-To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `assets/config.json` to reflect your local development hostname.
+To use BrowserSync during `gulp watch` you need to update `devUrl` at the bottom of `assets/manifest.json` to reflect your local development hostname.
 
 For example, if your local development URL is `http://project-name.dev` you would update the file to read:
 ```json
@@ -86,3 +108,17 @@ If your local development URL looks like `http://localhost:8888/project-name/` y
 ## Documentation
 
 Sage documentation is available at [https://roots.io/sage/docs/](https://roots.io/sage/docs/).
+
+## Contributing
+
+Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
+
+## Community
+
+Keep track of development and community news.
+
+* Participate on the [Roots Discourse](https://discourse.roots.io/)
+* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
+* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
+* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
+* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
