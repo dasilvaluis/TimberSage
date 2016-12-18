@@ -1,5 +1,5 @@
 <header class="banner">
-  <div class="uk-container">
+  <div class="uk-container uk-container-center">
     <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
     <nav class="nav-primary">
       <?php
