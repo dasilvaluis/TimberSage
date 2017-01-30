@@ -29,7 +29,6 @@
         "dist": "dist/"
     },
     "watch": [
-        "{lib,templates}/**/*.php", 
-        "*.php"
+        "**/*.php"
     ]
 }

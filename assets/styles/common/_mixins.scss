@@ -1,15 +1,106 @@
-@mixin clearfix {
-    zoom:1;
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
+// CSS LOCKS
+
+// $min-size: minimum element $property size in $unit specified
+// $max-size: maximum element $property size in $unit specified
+// $min-width: the screen width in $units where you want to lock in the $min-size
+// $max-width: the screen width in $units where you want to lock in the $max-size
+// $property: the property of the element that you would like to scale/lock
+// $unit: the units which all measurements are taken in
+
+$css-lock-min: $breakpoint-medium;
+$css-lock-max: $breakpoint-large;
+
+@mixin css-lock(
+  $min-size: 16,
+  $max-size: 24,
+  $min-width: $css-lock-min,
+  $max-width: $css-lock-max,
+  $property: font-size,
+  $unit: px) {
+
+  #{$property}: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
+
+  @media (max-width: #{$min-width}#{$unit}) {
+    #{$property}: #{$min-size}#{$unit};
+  }
+
+  @media (min-width: #{$max-width}#{$unit}) {
+    #{$property}: #{$max-size}#{$unit};
+  }
 }
+
+// SCROLLING SHADOWS
+
+// $orientation: scrolling orientation
+// $background-color: background color of the box,
+// $shadow-intensity: shadow opacity,
+// $shadow-color: shadow color,
+// $cover-size: 40px,
+// $shadow-size: 14px
+
+@mixin scrolling-shadows(
+  $orientation: "H", // H to horizontal and V to vertical
+  $background-color: rgb(255, 255, 255),
+  $shadow-intensity: .2,
+  $shadow-color: rgb(0,0,0),
+  $cover-size: 40px,
+  $shadow-size: 14px) {
+
+  // variations between H and V
+  $angle: 90deg;
+  $bg-sizes: ( $cover-size 100%, $shadow-size 100% );
+  $gradient-sizes: ( 100% 0, 0 50%, 100% 50% );
+
+  @if $orientation == "V" {
+    $angle: 0deg;
+    $bg-sizes: ( 100% $cover-size, 100% $shadow-size );
+    $gradient-sizes: ( 0 100%, 50% 0, 50% 100% );
+  }
+
+  background:
+    // Shadow covers
+    linear-gradient($angle, $background-color 30%, rgba($background-color, 0)),
+    linear-gradient($angle, rgba($background-color, 0), $background-color 70%) nth($gradient-sizes, 1),
+
+    // Shadows
+    radial-gradient(nth($gradient-sizes, 2), farthest-side, rgba($shadow-color, $shadow-intensity), rgba($shadow-color, 0)),
+    radial-gradient(nth($gradient-sizes, 3), farthest-side, rgba($shadow-color, $shadow-intensity), rgba($shadow-color, 0)) nth($gradient-sizes, 1);
+
+  background:
+    // Shadow covers
+    linear-gradient($angle, $background-color 30%, rgba($background-color, 0)),
+    linear-gradient($angle, rgba($background-color, 0), $background-color 70%) nth($gradient-sizes, 1),
+
+    // Shadows
+    radial-gradient(farthest-side at nth($gradient-sizes, 2), rgba($shadow-color, $shadow-intensity), rgba($shadow-color, 0)),
+    radial-gradient(farthest-side at nth($gradient-sizes, 3), rgba($shadow-color, $shadow-intensity), rgba($shadow-color, 0)) nth($gradient-sizes, 1);
+  background-color: $background-color;
+  background-repeat: no-repeat;
+  background-size: nth($bg-sizes, 1), nth($bg-sizes, 1), nth($bg-sizes, 2), nth($bg-sizes, 2);
+
+  // Opera doesn't support this in the shorthand
+  background-attachment: local, local, scroll, scroll;
+
+  // Chrome for Android needs this
+  border-radius: 1px;
+}
+
+/// REMOVE THE UNIT OF A LENGTH
+
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+
+
+
 
 
 // MEDIA MIXINS
@@ -24,51 +115,50 @@
     @media (max-width: $max) { @content; }
 }
 
-
+@mixin max-small {
+    @media (max-width: $breakpoint-small - 1) { @content; }
+}
 @mixin min-small {
     @media (min-width: $breakpoint-small) { @content; }
 }
-@mixin max-small {
-    @media (max-width: $breakpoint-small) { @content; }
+@mixin max-medium {
+    @media (max-width: $breakpoint-medium - 1) { @content; }
 }
 @mixin min-medium {
     @media (min-width: $breakpoint-medium) { @content; }
 }
-@mixin max-medium {
-    @media (max-width: $breakpoint-medium) { @content; }
+@mixin max-large {
+    @media (max-width: $breakpoint-large - 1) { @content; }
 }
 @mixin min-large {
     @media (min-width: $breakpoint-large) { @content; }
 }
-@mixin max-large {
-    @media (max-width: $breakpoint-large) { @content; }
+@mixin max-xlarge {
+    @media (max-width: $breakpoint-xlarge - 1) { @content; }
 }
 @mixin min-xlarge {
     @media (min-width: $breakpoint-xlarge) { @content; }
 }
-@mixin max-xlarge {
-    @media (max-width: $breakpoint-xlarge) { @content; }
-}
 
 @mixin small-medium {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium - 1) { @content; }
 }
 @mixin small-large {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-large - 1) { @content; }
 }
 @mixin small-xlarge {
-    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-xlarge - 1) { @content; }
 }
 
 @mixin medium-large {
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) { @content; }
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) { @content; }
 }
 @mixin medium-xlarge {
-    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-xlarge - 1) { @content; }
 }
 
 @mixin large-xlarge {
-    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge) { @content; }
+    @media (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge - 1) { @content; }
 }
 
 
