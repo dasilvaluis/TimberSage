@@ -1,8 +1,6 @@
-# [Sage](https://roots.io/sage/)
-[![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
-[![devDependency Status](https://david-dm.org/roots/sage/dev-status.svg)](https://david-dm.org/roots/sage#info=devDependencies)
+# [Brief Creatives](https://brief.pt)
 
-Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
+This theme is a fork of Sage, a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
 
 ## Requirements
 
@@ -21,6 +19,7 @@ For more installation notes, refer to the [Install gulp and Bower](#install-gulp
 * `assets/config.json` for the JSON file based asset pipeline
 * [Uikit](https://getuikit.com/)
 * [Susy](http://sass-lang.com/)
+* [Swiper](http://idangero.us/swiper/)
 * [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
 * ARIA roles and microformats
 * Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
@@ -34,7 +33,7 @@ Install Sage using Composer from your WordPress themes directory (replace `your-
 
 ```shell
 # @ example.com/site/web/app/themes/
-$ git clone https://github.com/luism-s/mySage.git your-theme-name 8.5.0
+$ git clone git@bitbucket.org:briefcreatives/brief-wordpress-starter-theme.git theme-name
 ```
 
 ## Theme setup
