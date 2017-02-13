@@ -10,9 +10,9 @@ gulp.task('watch', function() {
     proxy: config.devUrl,
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
-      blacklist: ['/wp-admin/**'],
-      open: false
-    }
+      blacklist: ['/wp-admin/**']
+    },
+    open: false
   });
   gulp.watch([paths.source + 'styles/**/*'], ['styles']);
   gulp.watch([paths.source + 'scripts/**/*'], ['scripts']);
