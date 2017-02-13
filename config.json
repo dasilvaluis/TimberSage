@@ -3,10 +3,12 @@
         "js": [
             "node_modules/jquery/dist/jquery.min.js",
             "node_modules/uikit/dist/js/uikit.min.js",
+            "node_modules/swiper/dist/js/swiper.jquery.min.js",
             "assets/scripts/main.js"
         ],
         "css": [
-            "node_modules/normalize.css/normalize.css",
+            "node_modules/normalize-css/normalize.css",
+            "node_modules/swiper/dist/css/swiper.min.css",
             "assets/styles/main.scss"
         ],
         "fonts": [
