@@ -15,11 +15,12 @@ $sage_includes = [
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
+  'lib/variables.php',  // Variables
 ];
 
 foreach ($sage_includes as $file) {
   if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
+    trigger_error(sprintf(__('Error locating %s for inclusion', MAIN_DOMAIN), $file), E_USER_ERROR);
   }
 
   require_once $filepath;
