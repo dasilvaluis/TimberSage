@@ -6,7 +6,7 @@ if (post_password_required()) {
 
 <section id="comments" class="comments">
   <?php if (have_comments()) : ?>
-    <h2><?php printf(_nx('One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', MAIN_DOMAIN), number_format_i18n(get_comments_number()), '<span>' . get_the_title() . '</span>'); ?></h2>
+    <h2><?php printf(_nx('One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', THEME_DOMAIN), number_format_i18n(get_comments_number()), '<span>' . get_the_title() . '</span>'); ?></h2>
 
     <ol class="comment-list">
       <?php wp_list_comments(['style' => 'ol', 'short_ping' => true]); ?>
@@ -16,10 +16,10 @@ if (post_password_required()) {
       <nav>
         <ul class="pager">
           <?php if (get_previous_comments_link()) : ?>
-            <li class="previous"><?php previous_comments_link(__('&larr; Older comments', MAIN_DOMAIN)); ?></li>
+            <li class="previous"><?php previous_comments_link(__('&larr; Older comments', THEME_DOMAIN)); ?></li>
           <?php endif; ?>
           <?php if (get_next_comments_link()) : ?>
-            <li class="next"><?php next_comments_link(__('Newer comments &rarr;', MAIN_DOMAIN)); ?></li>
+            <li class="next"><?php next_comments_link(__('Newer comments &rarr;', THEME_DOMAIN)); ?></li>
           <?php endif; ?>
         </ul>
       </nav>
@@ -28,7 +28,7 @@ if (post_password_required()) {
 
   <?php if (!comments_open() && get_comments_number() != '0' && post_type_supports(get_post_type(), 'comments')) : ?>
     <div class="alert alert-warning">
-      <?php _e('Comments are closed.', MAIN_DOMAIN); ?>
+      <?php _e('Comments are closed.', THEME_DOMAIN); ?>
     </div>
   <?php endif; ?>
 

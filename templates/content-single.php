@@ -3,7 +3,7 @@
     <?php the_content(); ?>
   </div>
   <footer>
-    <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', MAIN_DOMAIN), 'after' => '</p></nav>']); ?>
+    <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', THEME_DOMAIN), 'after' => '</p></nav>']); ?>
   </footer>
   <?php comments_template('/templates/comments.php'); ?>
 </article>
