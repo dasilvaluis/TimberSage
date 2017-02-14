@@ -28,21 +28,21 @@ function custom_post_example() {
 	register_post_type( 'custom_type', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-                'name' => __( 'Custom Types', 'brieftheme' ),                           /* This is the Title of the Group */
-                'singular_name' => __( 'Custom Post', 'brieftheme' ),                   /* This is the individual type */
-                'all_items' => __( 'All Custom Posts', 'brieftheme' ),                  /* the all items menu item */
-                'add_new' => __( 'Add New', 'brieftheme' ),                             /* The add new menu item */
-                'add_new_item' => __( 'Add New Custom Type', 'brieftheme' ),            /* Add New Display Title */
-                'edit' => __( 'Edit', 'brieftheme' ),                                   /* Edit Dialog */
-                'edit_item' => __( 'Edit Post Types', 'brieftheme' ),                   /* Edit Display Title */
-                'new_item' => __( 'New Post Type', 'brieftheme' ),                      /* New Display Title */
-                'view_item' => __( 'View Post Type', 'brieftheme' ),                    /* View Display Title */
-                'search_items' => __( 'Search Post Type', 'brieftheme' ),               /* Search Custom Type Title */ 
-                'not_found' =>  __( 'Nothing found in the Database.', 'brieftheme' ),   /* This displays if there are no entries yet */ 
-                'not_found_in_trash' => __( 'Nothing found in Trash', 'brieftheme' ),   /* This displays if there is nothing in the trash */
+                'name' => __( 'Custom Types', MAIN_DOMAIN ),                           /* This is the Title of the Group */
+                'singular_name' => __( 'Custom Post', MAIN_DOMAIN ),                   /* This is the individual type */
+                'all_items' => __( 'All Custom Posts', MAIN_DOMAIN ),                  /* the all items menu item */
+                'add_new' => __( 'Add New', MAIN_DOMAIN ),                             /* The add new menu item */
+                'add_new_item' => __( 'Add New Custom Type', MAIN_DOMAIN ),            /* Add New Display Title */
+                'edit' => __( 'Edit', MAIN_DOMAIN ),                                   /* Edit Dialog */
+                'edit_item' => __( 'Edit Post Types', MAIN_DOMAIN ),                   /* Edit Display Title */
+                'new_item' => __( 'New Post Type', MAIN_DOMAIN ),                      /* New Display Title */
+                'view_item' => __( 'View Post Type', MAIN_DOMAIN ),                    /* View Display Title */
+                'search_items' => __( 'Search Post Type', MAIN_DOMAIN ),               /* Search Custom Type Title */ 
+                'not_found' =>  __( 'Nothing found in the Database.', MAIN_DOMAIN ),   /* This displays if there are no entries yet */ 
+                'not_found_in_trash' => __( 'Nothing found in Trash', MAIN_DOMAIN ),   /* This displays if there is nothing in the trash */
                 'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example custom post type', 'brieftheme' ), /* Custom Type Description */
+			'description' => __( 'This is the example custom post type', MAIN_DOMAIN ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -79,16 +79,16 @@ register_taxonomy( 'custom_cat',
     array('custom_type'),           /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     array('hierarchical' => true,   /* if this is true, it acts like categories */
         'labels' => array(
-            'name' => __( 'Custom Categories', 'brieftheme' ),                      /* name of the custom taxonomy */
-            'singular_name' => __( 'Custom Category', 'brieftheme' ),               /* single taxonomy name */
-            'search_items' =>  __( 'Search Custom Categories', 'brieftheme' ),      /* search title for taxomony */
-            'all_items' => __( 'All Custom Categories', 'brieftheme' ),             /* all title for taxonomies */
-            'parent_item' => __( 'Parent Custom Category', 'brieftheme' ),          /* parent title for taxonomy */
-            'parent_item_colon' => __( 'Parent Custom Category:', 'brieftheme' ),   /* parent taxonomy title */
-            'edit_item' => __( 'Edit Custom Category', 'brieftheme' ),              /* edit custom taxonomy title */
-            'update_item' => __( 'Update Custom Category', 'brieftheme' ),          /* update title for taxonomy */
-            'add_new_item' => __( 'Add New Custom Category', 'brieftheme' ),        /* add new title for taxonomy */
-            'new_item_name' => __( 'New Custom Category Name', 'brieftheme' )       /* name title for taxonomy */
+            'name' => __( 'Custom Categories', MAIN_DOMAIN ),                      /* name of the custom taxonomy */
+            'singular_name' => __( 'Custom Category', MAIN_DOMAIN ),               /* single taxonomy name */
+            'search_items' =>  __( 'Search Custom Categories', MAIN_DOMAIN ),      /* search title for taxomony */
+            'all_items' => __( 'All Custom Categories', MAIN_DOMAIN ),             /* all title for taxonomies */
+            'parent_item' => __( 'Parent Custom Category', MAIN_DOMAIN ),          /* parent title for taxonomy */
+            'parent_item_colon' => __( 'Parent Custom Category:', MAIN_DOMAIN ),   /* parent taxonomy title */
+            'edit_item' => __( 'Edit Custom Category', MAIN_DOMAIN ),              /* edit custom taxonomy title */
+            'update_item' => __( 'Update Custom Category', MAIN_DOMAIN ),          /* update title for taxonomy */
+            'add_new_item' => __( 'Add New Custom Category', MAIN_DOMAIN ),        /* add new title for taxonomy */
+            'new_item_name' => __( 'New Custom Category Name', MAIN_DOMAIN )       /* name title for taxonomy */
         ),
         'show_admin_column' => true, 
         'show_ui' => true,
@@ -102,16 +102,16 @@ register_taxonomy( 'custom_tag',
     array('custom_type'),               /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     array('hierarchical' => false,      /* if this is false, it acts like tags */
         'labels' => array(
-            'name' => __( 'Custom Tags', 'brieftheme' ),                        /* name of the custom taxonomy */
-            'singular_name' => __( 'Custom Tag', 'brieftheme' ),                /* single taxonomy name */
-            'search_items' =>  __( 'Search Custom Tags', 'brieftheme' ),        /* search title for taxomony */
-            'all_items' => __( 'All Custom Tags', 'brieftheme' ),               /* all title for taxonomies */
-            'parent_item' => __( 'Parent Custom Tag', 'brieftheme' ),           /* parent title for taxonomy */
-            'parent_item_colon' => __( 'Parent Custom Tag:', 'brieftheme' ),    /* parent taxonomy title */
-            'edit_item' => __( 'Edit Custom Tag', 'brieftheme' ),               /* edit custom taxonomy title */
-            'update_item' => __( 'Update Custom Tag', 'brieftheme' ),           /* update title for taxonomy */
-            'add_new_item' => __( 'Add New Custom Tag', 'brieftheme' ),         /* add new title for taxonomy */
-            'new_item_name' => __( 'New Custom Tag Name', 'brieftheme' )        /* name title for taxonomy */
+            'name' => __( 'Custom Tags', MAIN_DOMAIN ),                        /* name of the custom taxonomy */
+            'singular_name' => __( 'Custom Tag', MAIN_DOMAIN ),                /* single taxonomy name */
+            'search_items' =>  __( 'Search Custom Tags', MAIN_DOMAIN ),        /* search title for taxomony */
+            'all_items' => __( 'All Custom Tags', MAIN_DOMAIN ),               /* all title for taxonomies */
+            'parent_item' => __( 'Parent Custom Tag', MAIN_DOMAIN ),           /* parent title for taxonomy */
+            'parent_item_colon' => __( 'Parent Custom Tag:', MAIN_DOMAIN ),    /* parent taxonomy title */
+            'edit_item' => __( 'Edit Custom Tag', MAIN_DOMAIN ),               /* edit custom taxonomy title */
+            'update_item' => __( 'Update Custom Tag', MAIN_DOMAIN ),           /* update title for taxonomy */
+            'add_new_item' => __( 'Add New Custom Tag', MAIN_DOMAIN ),         /* add new title for taxonomy */
+            'new_item_name' => __( 'New Custom Tag Name', MAIN_DOMAIN )        /* name title for taxonomy */
         ),
         'show_admin_column' => true,
         'show_ui' => true,
