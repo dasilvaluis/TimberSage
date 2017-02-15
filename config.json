@@ -25,7 +25,7 @@
     "jslintFiles": [
         "assets/scripts/main.js"
     ],
-    "devUrl": "http://example.dev/",
+    "devUrl": "http://wordpress.brief.com.pt/",
     "paths": {
         "source": "assets/",
         "dist": "dist/"
