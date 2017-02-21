@@ -1,0 +1,11 @@
+// Grid elements
+.sidebar-primary {
+
+    .main {
+        @include span-min-medium(6);
+    }
+    
+    .sidebar {
+        @include span-min-medium(last 4);
+    }
+}
