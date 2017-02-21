@@ -11,7 +11,8 @@ gulp.task('watch', function() {
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
       blacklist: ['/wp-admin/**']
-    }
+    },
+    open: false
   });
   gulp.watch([paths.source + 'styles/**/*'], ['styles']);
   gulp.watch([paths.source + 'scripts/**/*'], ['scripts']);

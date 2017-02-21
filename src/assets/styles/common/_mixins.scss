@@ -7,14 +7,12 @@
 // $property: the property of the element that you would like to scale/lock
 // $unit: the units which all measurements are taken in
 
-$css-lock-min: $breakpoint-medium;
-$css-lock-max: $breakpoint-large;
-
+////// NÃO METER PX NOS VALORES
 @mixin css-lock(
   $min-size: 16,
   $max-size: 24,
-  $min-width: $css-lock-min,
-  $max-width: $css-lock-max,
+  $min-width: $breakpoint-medium,
+  $max-width: $breakpoint-large,
   $property: font-size,
   $unit: px) {
 
@@ -98,6 +96,32 @@ $css-lock-max: $breakpoint-large;
 }
 
 
+//BREAKPOINT LOCK
+
+/*
+* 
+* @param {a} $a - First property value [0px - $breakpoint]
+* @param {b} $b - Second property value [$breakpoint - infinite]
+* @param {property} $property - Property to be changed on breakpoint
+* @param {breakpoint} $breakpoint - Width of the screen in which the property will change
+*
+*/
+@mixin breakpoint-lock(
+  $a,
+  $b,
+  $property,
+  $breakpoint: $breakpoint-medium) {
+
+  @media (max-width: #{$breakpoint}) {
+    #{$property}: #{$a};
+  }
+
+  @media (min-width: #{$breakpoint}) {
+    #{$property}: #{$b};
+  }
+}
+
+
 
 
 
@@ -160,34 +184,4 @@ $css-lock-max: $breakpoint-large;
 
 @mixin large-xlarge {
     @media (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge - 1) { @content; }
-}
-
-
-// Use span mixin from sass with media queries with Uikit breakpoints
-@mixin span-min-small($span-args) {
-    @include min-small { @include span($span-args); }
-}
-@mixin span-max-small($span-args) {
-    @include max-small { @include span($span-args); }
-}
-
-@mixin span-min-medium($span-args) {
-    @include min-medium { @include span($span-args); }
-}
-@mixin span-max-medium($span-args) {
-    @include max-medium { @include span($span-args); }
-}
-
-@mixin span-min-large($span-args) {
-    @include min-large { @include span($span-args); }
-}
-@mixin span-max-large($span-args) {
-    @include max-large { @include span($span-args); }
-}
-
-@mixin span-min-xlarge($span-args) {
-    @include min-xlarge { @include span($span-args); }
-}
-@mixin span-max-xlarge($span-args) {
-    @include max-xlarge { @include span($span-args); }
 }

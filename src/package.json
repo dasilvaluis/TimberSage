@@ -51,8 +51,8 @@
   },
   "dependencies": {
     "jquery": "^3.1.1",
-    "normalize-css": "^2.3.1",
     "susy": "^2.2.12",
-    "uikit": "^2.27.2"
+    "swiper": "^3.4.1",
+    "uikit": "^3.0.0-Beta.12"
   }
 }

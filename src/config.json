@@ -3,17 +3,15 @@
         "js": [
             "node_modules/jquery/dist/jquery.min.js",
             "node_modules/uikit/dist/js/uikit.min.js",
+            "node_modules/swiper/dist/js/swiper.jquery.min.js",
             "assets/scripts/main.js"
         ],
         "css": [
-            "node_modules/normalize.css/normalize.css",
+            "node_modules/uikit/dist/css/uikit.min.css",
+            "node_modules/swiper/dist/css/swiper.min.css",
             "assets/styles/main.scss"
         ],
         "fonts": [
-            "node_modules/uikit/dist/fonts/FontAwesome.otf",
-            "node_modules/uikit/dist/fonts/fontawesome-webfont.ttf",
-            "node_modules/uikit/dist/fonts/fontawesome-webfont.woff",
-            "node_modules/uikit/dist/fonts/fontawesome-webfont.woff2",
             "assets/fonts/**/*"
         ],
         "images": [
@@ -23,12 +21,12 @@
     "jslintFiles": [
         "assets/scripts/main.js"
     ],
-    "devUrl": "http://example.dev/",
+    "devUrl": "http://example.com/",
     "paths": {
         "source": "assets/",
-        "dist": "dist/"
+        "dist": "../dist/"
     },
     "watch": [
-        "**/*.php"
+        "../**/*.php"
     ]
 }

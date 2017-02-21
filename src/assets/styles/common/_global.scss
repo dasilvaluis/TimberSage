@@ -1,8 +1,5 @@
 a {
 	transition: 0.2s all ease;
-	&:hover {
-		text-decoration: none;
-	}
 }
 
 ol, ul {
@@ -14,4 +11,8 @@ ol, ul {
 body {
     position: relative;
     margin: 0 auto;
+}
+
+* {
+	box-sizing: border-box;
 }

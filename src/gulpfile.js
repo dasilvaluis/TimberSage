@@ -11,18 +11,18 @@ global.browserSync  = require('browser-sync').create();
 
 // CLI options
 global.enabled = {
-  // Enable static asset revisioning when `--production`
-  rev: argv.production,
-  // Disable source maps when `--production`
-  maps: !argv.production,
-  // Fail styles task on error when `--production`
-  failStyleTask: argv.production,
-  // Fail due to JSHint warnings only when `--production`
-  failJSHint: argv.production,
-  // Strip debug statments from javascript when `--production`
-  stripJSDebug: argv.production,
-  // Minify CSS and JS when `--production`
-  minify: argv.production
+  // Enable static asset revisioning when `--prod`
+  rev: argv.prod,
+  // Disable source maps when `--prod`
+  maps: !argv.prod,
+  // Fail styles task on error when `--prod`
+  failStyleTask: argv.prod,
+  // Fail due to JSHint warnings only when `--prod`
+  failJSHint: argv.prod,
+  // Strip debug statments from javascript when `--prod`
+  stripJSDebug: argv.prod,
+  // Minify CSS and JS when `--prod`
+  minify: argv.prod
 };
 
 global.config = require('./config.json'),
