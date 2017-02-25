@@ -21,12 +21,13 @@
     "jslintFiles": [
         "assets/scripts/main.js"
     ],
-    "devUrl": "http://example.com/",
+    "devUrl": "http://wordpress.dev/",
     "paths": {
         "source": "assets/",
         "dist": "../dist/"
     },
     "watch": [
-        "../**/*.php"
+        "../**/*.php",
+        "../**/*.twig"
     ]
 }
