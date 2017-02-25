@@ -1,6 +1,6 @@
-# [Sage](https://roots.io/sage/)
+# [TimberSage](https://luism-s.github.io/timbersage/)
 
-This theme is a fork of Sage, a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
+<a href="https://luism-s.github.io/timbersage/">TimberSage</a> is a WordPress starter theme forked from <a href="https://github.com/roots/sage/">Sage</a> version 8.5.1
 
 ## Requirements
 
