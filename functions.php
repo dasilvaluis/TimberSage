@@ -10,12 +10,14 @@
  * @link https://github.com/roots/sage/pull/1042
  */
 $includes = [
+  'vendor/autoload.php',
+  'lib/variables.php',  // Variables
   'lib/assets.php',    // Scripts and stylesheets
   'lib/extras.php',    // Custom functions
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
-  'lib/variables.php',  // Variables
+  'lib/components/clean-walker.php'  // Variables
 ];
 
 foreach ($includes as $file) {
@@ -26,3 +28,5 @@ foreach ($includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+$timber = new \Timber\Timber();
