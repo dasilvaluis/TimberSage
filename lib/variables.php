@@ -1,3 +1,3 @@
 <?php 
 
-define('THEME_DOMAIN', 'sage');
+define('THEME_DOMAIN', 'timbersage');
