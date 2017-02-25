@@ -1,12 +1,10 @@
-<header class="banner">
-  <div class="uk-container uk-container-center">
-    <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-    <nav class="nav-primary">
-      <?php
-      if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
-      endif;
-      ?>
-    </nav>
-  </div>
-</header>
+<?php
+
+$context = Timber::get_context();
+$context['menu'] = wp_nav_menu([
+  'theme_location' => 'primary_navigation', 
+  'menu_class' => 'nav',
+  'walker' => new Clean_Walker(),
+  'echo' => false
+]);
+Timber::render('views/navbar.twig', $context);
