@@ -1,6 +1,6 @@
 # [TimberSage](https://luism-s.github.io/timbersage/)
 
-<a href="https://luism-s.github.io/timbersage/">TimberSage</a> is a WordPress starter theme forked from <a href="https://github.com/roots/sage/">Sage</a> version 8.5.1
+[TimberSage](https://luism-s.github.io/timbersage/) is a WordPress starter theme forked from [Sage](https://github.com/roots/sage/) version 8.5.1 combined with [Timber](http://timber.github.io/timber/)
 
 ## Requirements
 
