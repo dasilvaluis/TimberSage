@@ -1,4 +1,14 @@
 <?php
+
+// Define enviroment as production if WP_ENV is not set
+if ( !defined('WP_ENV') || ('development' !== WP_ENV && 'staging' !== WP_ENV) ) {
+  define( 'WP_ENV', 'production' );
+}
+
+// Initialize Timber and require composer depedencies before everything
+require_once __DIR__ . '/vendor/autoload.php';
+new Timber\Timber();
+
 /**
  * Includes
  *
@@ -9,24 +19,28 @@
  *
  * @link https://github.com/roots/sage/pull/1042
  */
-$includes = [
-  'vendor/autoload.php',
-  'lib/variables.php',  // Variables
-  'lib/assets.php',    // Scripts and stylesheets
-  'lib/extras.php',    // Custom functions
-  'lib/setup.php',     // Theme setup
-  'lib/titles.php',    // Page titles
-  'lib/wrapper.php',   // Theme wrapper class
-  'lib/components/clean-walker.php'  // Variables
-];
+$includes = [];
+
+$includes[] = 'lib/variables.php';  // Variables
+$includes[] = 'lib/assets.php';     // Scripts and stylesheets
+$includes[] = 'lib/extras.php';     // Custom functions
+$includes[] = 'lib/setup.php';      // Theme setup
+$includes[] = 'lib/wrapper.php';    // Theme wrapper class
+
+// Post types registrator
+$includes[] = 'lib/custom-post-types/cpt-registrator.php';
+
+// Helpers
+$includes[] = 'lib/helpers/debug.php';
+
+// Hooks
+$includes[] = 'lib/hooks/uploads.php';
 
 foreach ($includes as $file) {
   if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', THEME_DOMAIN), $file), E_USER_ERROR);
+    trigger_error(sprintf(__('Error locating %s for inclusion'), $file), E_USER_ERROR);
   }
 
   require_once $filepath;
 }
 unset($file, $filepath);
-
-$timber = new \Timber\Timber();

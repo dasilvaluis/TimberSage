@@ -1,9 +1,7 @@
 <?php
 
-use Roots\Sage\Setup;
-use Roots\Sage\Wrapper;
-
-?>
+use TimberSage\Setup;
+use TimberSage\Wrapper; ?>
 
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -11,13 +9,11 @@ use Roots\Sage\Wrapper;
   <body <?php body_class(); ?>>
     <!--[if IE]>
       <div class="alert alert-warning">
-        <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', THEME_DOMAIN); ?>
+        <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'timbersage'); ?>
       </div>
     <![endif]-->
     <?php
-      do_action('get_header');
-      get_template_part('templates/navbar');
-    ?>
+    get_template_part('templates/navbar'); ?>
     <div class="uk-container uk-container-center" role="document">
       <div class="content">
         <main class="main">
@@ -26,9 +22,7 @@ use Roots\Sage\Wrapper;
       </div><!-- /.content -->
     </div><!-- /.uk-container -->
     <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
-      wp_footer();
-    ?>
+    get_template_part('templates/footer');
+    wp_footer(); ?>
   </body>
 </html>

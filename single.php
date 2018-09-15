@@ -1,4 +1,10 @@
-<?php while (have_posts()) : the_post(); ?>
-    <?php get_template_part('templates/header', 'single'); ?>
-    <?php get_template_part('templates/content-single', get_post_type()); ?>
-<?php endwhile; ?>
+<?php
+
+/**
+ * Single
+ */
+
+$post_type = get_post_type();
+$context = Timber::get_context();
+$context['post'] = new TimberPost();
+Timber::render(['views/single-' . $post_type . '.twig', 'views/single.twig'], $context);

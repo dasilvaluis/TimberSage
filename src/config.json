@@ -1,33 +1,60 @@
 {
-    "dependencies": {
-        "js": [
-            "node_modules/jquery/dist/jquery.min.js",
-            "node_modules/uikit/dist/js/uikit.min.js",
-            "node_modules/swiper/dist/js/swiper.jquery.min.js",
-            "assets/scripts/main.js"
-        ],
-        "css": [
-            "node_modules/uikit/dist/css/uikit.min.css",
-            "node_modules/swiper/dist/css/swiper.min.css",
-            "assets/styles/main.scss"
-        ],
-        "fonts": [
-            "assets/fonts/**/*"
-        ],
-        "images": [
-            "assets/images/**/*"
-        ]
-    },
-    "jslintFiles": [
+  "dependencies" : {
+    "js" : {
+      "main" : [
+        "node_modules/uikit/dist/js/uikit.min.js",
+        "node_modules/uikit/dist/js/uikit-icons.min.js",
+        "node_modules/swiper/dist/js/swiper.jquery.min.js",
+        "assets/scripts/utils/**/*.js",
+        "assets/scripts/components/**/*.js",
+        "assets/scripts/pages/**/*.js",
         "assets/scripts/main.js"
-    ],
-    "devUrl": "http://wordpress.dev/",
-    "paths": {
-        "source": "assets/",
-        "dist": "../dist/"
+      ],
+      "independent" : [
+        "assets/scripts/independent/**/*.js"
+      ]
     },
-    "watch": [
-        "../**/*.php",
-        "../**/*.twig"
+    "css" : [
+      "node_modules/swiper/dist/css/swiper.min.css",
+      "assets/styles/main.scss"
+    ],
+    "fonts" : [
+      "assets/fonts/**/*"
+    ],
+    "images" : [
+      "assets/images/**/*"
     ]
+  },
+  "jslintFiles" : [
+    "assets/scripts/main.js"
+  ],
+  "devUrl": "http://timbersage-starter-theme.timbersage.com.pt/",
+  "paths": {
+    "source" : "assets/",
+    "dist" : "../dist/"
+  },
+  "watch" : [
+    "../**/*.php",
+    "../**/*.twig"
+  ],
+  "pot"     : {
+    "text_domain" : "strings_domain",
+    "twig_files" : "../views/**/*.twig",
+    "php_files" : "../**/*.php",
+    "cacheFolder" : "../views/cache",
+    "destFolder" : "../lang",
+    "keepCache" : true
+  },
+  "zip" : {
+    "name" : "timbersage-theme.zip",
+    "files" : [
+      "../**/*",
+      "!../.git",
+      "!../.gitignore",
+      "!../views/cache/**",
+      "!../src/**",
+      "!./node_modules/**"
+    ],
+    "dest" : "../../"
+  }
 }

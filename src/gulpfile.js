@@ -2,12 +2,15 @@
 var argv            = require('minimist')(process.argv.slice(2));
 
 // Globals
-global.rev          = require('gulp-rev');
-global.plumber      = require('gulp-plumber');
+global.browserSync  = require('browser-sync').create();
+global.del          = require('del');
 global.lazypipe     = require('lazypipe');
 global.gulp         = require('gulp');
 global.gulpif       = require('gulp-if');
-global.browserSync  = require('browser-sync').create();
+global.merge        = require('merge-stream');
+global.plumber      = require('gulp-plumber');
+global.rev          = require('gulp-rev');
+global.runSequence  = require('run-sequence');
 
 // CLI options
 global.enabled = {
@@ -18,11 +21,13 @@ global.enabled = {
   // Fail styles task on error when `--prod`
   failStyleTask: argv.prod,
   // Fail due to JSHint warnings only when `--prod`
-  failJSHint: argv.prod,
+  failESHint: argv.prod,
   // Strip debug statments from javascript when `--prod`
   stripJSDebug: argv.prod,
   // Minify CSS and JS when `--prod`
-  minify: argv.prod
+  minify: argv.prod,
+  // Generate POT file when '--prod'
+  generatePOT: argv.prod,
 };
 
 global.config = require('./config.json'),

@@ -1,59 +1,83 @@
-# [TimberSage](https://luism-s.github.io/timbersage/)
+# TimberSage Wordpress Starter Theme
 
-[TimberSage](https://luism-s.github.io/timbersage/) is a WordPress starter theme forked from [Sage](https://github.com/roots/sage/) version 8.5.1 combined with [Timber](http://timber.github.io/timber/)
+This theme is a fork of [Sage](https://roots.io/sage/), a WordPress starter theme based on HTML5 Boilerplate and gulp.
 
+It comes with [Timber](https://www.upstatement.com/timber/), a library for theme building with [Twig](https://twig.symfony.com/).
+
+**Docs:**
+
+* [Sage Docs](https://roots.io/sage/docs/)
+* [Timber Docs](https://timber.github.io/docs/getting-started/setup/)
+* [Twig Docs](https://twig.symfony.com/doc/1.x/)
+
+---
 ## Requirements
 
-| Prerequisite    | How to check | How to install
-| --------------- | ------------ | ------------- |
-| PHP >= 5.4.x    | `php -v`     | [php.net](http://php.net/manual/en/install.php) |
-| Node.js >= 4.5  | `node -v`    | [nodejs.org](http://nodejs.org/) |
-| gulp >= 3.8.10  | `gulp -v`    | `npm install -g gulp` |
-
-For more installation notes, refer to the [Install gulp and Bower](#install-gulp-and-bower) section in this document.
+| Prerequisite          | How to check  | How to install
+| ---------------       | ------------  | ------------- |
+| PHP >= 5.4.x          | `php -v`      | [php.net](http://php.net/manual/en/install.php) |
+| Composer >= 1.5.x     | `composer -v` | [getcomposer.org](https://getcomposer.org/) |
+| Node.js >= 4.5        | `node -v`     | [nodejs.org](http://nodejs.org/) |
+| gulp >= 3.8.10        | `gulp -v`     | `npm install -g gulp` |
 
 ## Features
 
-* [gulp](http://gulpjs.com/) build script that compiles both Sass and Less, checks for JavaScript errors, optimizes images, and concatenates and minifies files
-* [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
-* `assets/config.json` for the JSON file based asset pipeline
-* [Uikit](https://getuikit.com/)
-* [Susy](http://sass-lang.com/)
-* [Swiper](http://idangero.us/swiper/)
-* [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
-* ARIA roles and microformats
-* Posts use the [hNews](http://microformats.org/wiki/hnews) microformat
+Development:
 
+* [gulp](http://gulpjs.com/) build script that compiles SCSS, checks for JavaScript errors, optimizes images, and concatenates and minifies files
+* [BrowserSync](http://www.browsersync.io/) for keeping multiple browsers and devices synchronized while testing, along with injecting updated CSS and JS into your browser while you're developing
+* `assets/config.json` to configure the build system
+
+Backend:
+
+* [Theme Wrapper](https://roots.io/sage/docs/theme-wrapper/)
+* [Timber](https://www.upstatement.com/timber/)
+* [Twig](https://twig.symfony.com/)
+* [Upstatement/routes](https://github.com/Upstatement/routes)
+
+Front-end:
+ 
+* [Uikit](https://getuikit.com/)
+* [Swiper](http://idangero.us/swiper/)
+
+---
 
 ## Theme installation
 
-Install MySage by copying the project into a new folder within your WordPress themes directory.
+1. Place project within your WordPress themes directory.
+````shell
+@ example.com/wp-content/themes/
+$ git clone git@bitbucket.org:timbersagecreatives/timbersage-wordpress-starter-theme.git timbersage-theme
+````
 
-Install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
+2. Install composer dependencies
+````shell
+@ example.com/wp-content/themes/timbersage-theme
+$ composer install
+````
 
-```shell
-# @ example.com/site/web/app/themes/
-$ git clone git@bitbucket.org:briefcreatives/brief-wordpress-starter-theme.git theme-name
-```
+3. Install npm dependencies
+````shell
+@ example.com/wp-content/themes/timbersage-theme/src
+$ npm install
+````
+
+3. Compile Assets
+````shell
+@ example.com/wp-content/themes/timbersage-theme/src
+$ gulp build
+````
+---
 
 ## Theme setup
 
 Edit `lib/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, post formats, and sidebars.
 
+---
+
 ## Theme development
 
-Sage uses [gulp](http://gulpjs.com/) as its build system and [npm](https://www.npmjs.com/) to manage front-end packages.
-
-### Install gulp and NPM
-
-Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm: `npm install -g npm@latest`.
-
-From the command line:
-
-1. Install [gulp](http://gulpjs.com) and [npm](https://www.npmjs.com/)
-2. Navigate to the theme directory, then run `npm install`
-
-You now have all the necessary dependencies to run the build process.
+This theme uses [gulp](http://gulpjs.com/) as its build system and [npm](https://www.npmjs.com/) to manage front-end packages.
 
 ### Available gulp commands
 
@@ -81,7 +105,3 @@ If your local development URL looks like `http://localhost:8888/project-name/` y
   }
 ...
 ```
-
-## Documentation
-
-Sage documentation is available at [https://roots.io/sage/docs/](https://roots.io/sage/docs/).

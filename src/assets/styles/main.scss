@@ -1,4 +1,8 @@
-@import 'susy';
+// Uikit
+@import '../../node_modules/uikit/src/scss/variables';
+@import '../../node_modules/uikit/src/scss/mixins';
+@import 'common/uikit-hooks'; // Uikit Custom Hooks
+@import '../../node_modules/uikit/src/scss/uikit';
 
 @import 'common/variables';
 @import 'common/mixins';
@@ -10,9 +14,7 @@
 @import 'components/grid';
 @import 'components/wp-classes';
 
-@import 'layouts/header';
-@import 'layouts/sidebar';
+@import 'layouts/navbar';
 @import 'layouts/footer';
 @import 'layouts/pages';
 @import 'layouts/posts';
-@import 'layouts/navbar';

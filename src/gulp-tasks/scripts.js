@@ -2,6 +2,7 @@ var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
 var concat      = require('gulp-concat');
 var eslint      = require('gulp-eslint');
+var merge       = require('merge-stream');
 
 // ### JS processing pipeline
 // Example
@@ -10,12 +11,15 @@ var eslint      = require('gulp-eslint');
 //   .pipe(jsTasks('main.js')
 //   .pipe(gulp.dest(paths.dist + 'scripts'))
 // ```
-var jsTasks = function(filename) {
+var jsTasks = function(independent) {
+  var independent = independent || false;
   return lazypipe()
     .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
     })
-    .pipe(concat, filename)
+    .pipe(function() {
+      return gulpif(!independent, concat('main.js'));
+    })
     .pipe(function() {
       return gulpif(enabled.minify, uglify({
           compress: {
@@ -34,12 +38,18 @@ var jsTasks = function(filename) {
 };
 
 // ### Scripts
-// `gulp scripts` - Runs ESLint then compiles, combines, and optimizes Bower JS
-// and project JS.
+// `gulp scripts` - Runs ESLint then compiles, combines, and optimizes JS
 gulp.task('scripts', ['eslint'], function() {
-  return gulp.src(deps.js)
-    .pipe(jsTasks('main.js'))
-    .pipe(writeToManifest('scripts'));
+  var merged = merge();
+  merged.add(
+    gulp.src(deps.js.main)
+      .pipe(jsTasks())
+  );
+  merged.add(
+    gulp.src(deps.js.independent)
+      .pipe(jsTasks(true))
+  );
+  return merged.pipe(writeToManifest('scripts'));
 });
 
 // ### ESLint

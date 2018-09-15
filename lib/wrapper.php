@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Sage\Wrapper;
+namespace TimberSage\Wrapper;
 
 /**
  * Theme wrapper
@@ -10,14 +10,14 @@ namespace Roots\Sage\Wrapper;
  */
 
 function template_path() {
-  return SageWrapping::$main_template;
+  return ThemeWrapper::$main_template;
 }
 
 function sidebar_path() {
-  return new SageWrapping('templates/sidebar.php');
+  return new ThemeWrapper('templates/sidebar.php');
 }
 
-class SageWrapping {
+class ThemeWrapper {
   // Stores the full path to the main template file
   public static $main_template;
 
@@ -58,7 +58,7 @@ class SageWrapping {
       self::$base = false;
     }
 
-    return new SageWrapping();
+    return new ThemeWrapper();
   }
 }
-add_filter('template_include', [__NAMESPACE__ . '\\SageWrapping', 'wrap'], 109);
+add_filter('template_include', [__NAMESPACE__ . '\\ThemeWrapper', 'wrap'], 109);

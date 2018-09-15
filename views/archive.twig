@@ -1,0 +1,9 @@
+{% for post in posts %}
+
+  <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
+
+  <p>{{ post.content|excerpt(50) }}</p>
+  
+  <small><b>{{ post.author }}</b> - {{ post.date }}</small>
+  
+{% endfor %}

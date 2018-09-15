@@ -1,7 +1,8 @@
-<header class="site-navbar">
-  <div class="uk-container uk-container-center">
-    <a class="brand" href="{{ site.link }}">{{ site.name }}</a>
-    <nav>{{ menu }}</nav>
+<header class="site-header uk-margin-top uk-margin-bottom uk-padding-small uk-padding-remove-horizontal">
+  <div class="uk-container uk-container-center uk-flex uk-flex-between uk-flex-middle">
+    <a class="brand" href="{{ site.url }}">{{ site.name }}</a>
+    <nav class="site-navbar-container">
+      {{ navbar }}
+    </nav>
   </div>
 </header>
-

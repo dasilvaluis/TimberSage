@@ -2,11 +2,11 @@ a {
 	transition: color 0.2s ease;
 }
 
-body {
-    position: relative;
-    margin: 0 auto;
-}
-
 * {
 	box-sizing: border-box;
+}
+
+body{
+	-webkit-font-smoothing: antialiased; 
+	-moz-osx-font-smoothing: grayscale;
 }
