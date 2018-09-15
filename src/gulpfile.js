@@ -52,3 +52,7 @@ global.writeToManifest = function(directory) {
 };
 
 require('require-dir')('./gulp-tasks');
+
+gulp.task('default', ['clean'], function() {
+  gulp.start('build');
+});

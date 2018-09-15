@@ -9,6 +9,6 @@ gulp.task('zip', function() {
   }
 );
 
-gulp.task('generate-zip', ['clean'], function(callback) {
-  runSequence('build', 'zip', callback);
+gulp.task('generate-zip', function(callback) {
+  runSequence('clean', 'build', 'zip', callback);
 });

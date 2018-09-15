@@ -37,21 +37,6 @@ var jsTasks = function(independent) {
     })();
 };
 
-// ### Scripts
-// `gulp scripts` - Runs ESLint then compiles, combines, and optimizes JS
-gulp.task('scripts', ['eslint'], function() {
-  var merged = merge();
-  merged.add(
-    gulp.src(deps.js.main)
-      .pipe(jsTasks())
-  );
-  merged.add(
-    gulp.src(deps.js.independent)
-      .pipe(jsTasks(true))
-  );
-  return merged.pipe(writeToManifest('scripts'));
-});
-
 // ### ESLint
 // `gulp eslint` - Lints configuration JSON and project JS.
 // Configure linter options in eslint.json
@@ -66,4 +51,19 @@ gulp.task('eslint', function() {
     // To have the process exit with an error code (1) on 
     // lint error, return the stream and pipe to failAfterError last. 
     .pipe(gulpif(enabled.failJSHint, eslint.failAfterError()));
+});
+
+// ### Scripts
+// `gulp scripts` - Runs ESLint then compiles, combines, and optimizes JS
+gulp.task('scripts', function() {
+  var merged = merge();
+  merged.add(
+    gulp.src(deps.js.main)
+      .pipe(jsTasks())
+  );
+  merged.add(
+    gulp.src(deps.js.independent)
+      .pipe(jsTasks(true))
+  );
+  return merged.pipe(writeToManifest('scripts'));
 });
