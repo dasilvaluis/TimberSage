@@ -1,12 +1,20 @@
 <?php
 
+/**
+ * WordPress functions
+ */
+
 // Define enviroment as production if WP_ENV is not set
 if ( !defined('WP_ENV') || ('development' !== WP_ENV && 'staging' !== WP_ENV) ) {
   define( 'WP_ENV', 'production' );
 }
 
-// Initialize Timber and require composer depedencies before everything
-require_once __DIR__ . '/vendor/autoload.php';
+//* Require composer depedencies
+if ( file_exists( get_stylesheet_directory() . '/vendor/autoload.php' ) ) {
+	require_once get_stylesheet_directory() . '/vendor/autoload.php';
+}
+
+use TimberSage;
 new Timber\Timber();
 
 /**

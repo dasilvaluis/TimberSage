@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 define( '__ROOT__', get_template_directory_uri() );
 define( '__ASSETS__', __ROOT__ . '/dist' );
