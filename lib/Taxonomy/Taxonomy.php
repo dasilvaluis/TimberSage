@@ -14,7 +14,7 @@ abstract class Taxonomy {
 	 *
 	 * @param string $post_types   Post Types array.
 	 */
-	public function __construct( $post_types = array() ) {
+	public function __construct( $post_types = [] ) {
 		$this->post_types = $post_types;
 	}
 

@@ -16,7 +16,7 @@ abstract class PostType {
 	 *
 	 * @param string $taxonomies   The taxonomies list.
 	 */
-	public function __construct( $taxonomies = array() ) {
+	public function __construct( $taxonomies = [] ) {
 		$this->taxonomies = $taxonomies;
 	}
 

@@ -38,9 +38,12 @@ foreach ($includes as $file) {
 unset($file, $filepath);
 
 // * Register post types
-add_action( 'init', array( '\\luisms\\TimberSage\\PostType\\Registrator', 'init' ) );
+add_action( 'init', [ '\\luisms\\TimberSage\\PostType\\Registrator', 'init' ] );
 // * Register taxonomies
-add_action( 'init', array( '\\luisms\\TimberSage\\Taxonomy\\Registrator', 'init' ) );
-add_filter( 'template_include', array( '\\luisms\\TimberSage\\Wrapper', 'wrap' ), 109 );
-add_action( 'wp_enqueue_scripts', array( '\\luisms\\TimberSage\\Assets', 'enqueue' ), 100 );
-add_action( 'after_setup_theme', array( '\\luisms\\TimberSage\\Setup', 'run' ) );
+add_action( 'init', [ '\\luisms\\TimberSage\\Taxonomy\\Registrator', 'init' ] );
+// * Base template
+add_filter( 'template_include', [ '\\luisms\\TimberSage\\Wrapper', 'wrap' ], 109 );
+// * Enqueue Scripts
+add_action( 'wp_enqueue_scripts', [ '\\luisms\\TimberSage\\Assets', 'enqueue' ], 100 );
+// * Setup Theme
+add_action( 'after_setup_theme', [ '\\luisms\\TimberSage\\Setup', 'run' ] );

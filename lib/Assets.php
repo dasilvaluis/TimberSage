@@ -38,9 +38,9 @@ class Assets {
 
 		// * Scripts
 		wp_deregister_script( 'jquery' );
-		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), null, true );
-		wp_enqueue_script( 'timbersage/js', self::asset_path( 'scripts/main.js' ), array( 'jquery', 'swiper/js' ), self::asset_mtime( 'scripts/main.js' ), true );
-		wp_localize_script( 'timbersage/js', 'vars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', [], null, true );
+		wp_enqueue_script( 'timbersage/js', self::asset_path( 'scripts/main.js' ), [ 'jquery', 'swiper/js' ], self::asset_mtime( 'scripts/main.js' ), true );
+		wp_localize_script( 'timbersage/js', 'vars', [ 'ajaxurl' => admin_url( 'admin-ajax.php' ) ] );
 	}
 }
 
