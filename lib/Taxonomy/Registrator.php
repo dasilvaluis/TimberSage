@@ -2,22 +2,35 @@
 
 namespace luisms\TimberSage\Taxonomy;
 
+use luisms\TimberSage\PostType;
+
 class Registrator {
 
   	private static $singleton;
 
-	private function __construct() {
-		$this->register_taxonomies();
-	}
+	protected function __construct() {}
+
+	protected function __clones() {}
 
 	private function register_taxonomies() {
-		Example::register();
+
+		$taxonomies = [
+			new Example( [ PostType\Example::CPT_SLUG ]  ),
+		];
+		foreach ( $taxonomies as $taxonomy ) {
+			$taxonomy->register();
+		}
 	}
 
-  	public static function init() {
+	public static function init() {
+		return self::instance();
+	}
+
+	public static function instance() {
 		if ( empty(self::$singleton) ) {
 			self::$singleton = new self;
+			self::$singleton->register_taxonomies();
 		}
 		return self::$singleton;
-  	}
+	}
 }

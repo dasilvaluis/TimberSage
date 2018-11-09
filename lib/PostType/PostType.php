@@ -2,7 +2,31 @@
 
 namespace luisms\TimberSage\PostType;
 
+use luisms\TimberSage\Taxonomy;
+
 abstract class PostType {
 
-	abstract static function register();
+	/**
+	 * Taxonomies Array
+	 */
+	protected $taxonomies;
+
+	/**
+	 * Initialize the class and set its properties.
+	 *
+	 * @param string $taxonomies   The taxonomies list.
+	 */
+	public function __construct( $taxonomies = array() ) {
+		$this->taxonomies = $taxonomies;
+	}
+
+	/**
+	 * Taxonomy registration
+	 */
+	abstract function register();
+
+	/**
+	 * Taxonomy Args
+	 */
+	abstract function get_args();
 }
