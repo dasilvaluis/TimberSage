@@ -1,12 +1,12 @@
 {
-  "name": "sage",
-  "version": "8.5.0",
+  "name": "timbersage",
+  "version": "1.0.0",
   "author": "Ben Word <ben@benword.com>",
-  "homepage": "https://roots.io/sage/",
+  "homepage": "https://github.com/luism-s/TimberSage.git",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/sage.git"
+    "url": "https://github.com/luism-s/TimberSage.git"
   },
   "licenses": [
     {
@@ -20,7 +20,7 @@
     "watch": "gulp clean && gulp watch"
   },
   "engines": {
-    "node": ">= 4.5"
+    "node": ">= 8.12"
   },
   "devDependencies": {
     "browser-sync": "^2.24.6",
@@ -52,7 +52,7 @@
     "sass-module-importer": "^1.4.0"
   },
   "dependencies": {
-    "swiper": "^4.4.1",
-    "uikit": "^3.0.0-rc.16"
+    "swiper": "^4.4.2",
+    "uikit": "^3.0.0-rc.21"
   }
 }

@@ -1,0 +1,60 @@
+{
+  "dependencies" : {
+    "js" : {
+      "main" : [
+        "./node_modules/uikit/dist/js/uikit.min.js",
+        "./node_modules/uikit/dist/js/uikit-icons.min.js",
+        "./node_modules/swiper/dist/js/swiper.jquery.min.js",
+        "./src/scripts/utils/**/*.js",
+        "./src/scripts/components/**/*.js",
+        "./src/scripts/pages/**/*.js",
+        "./src/scripts/main.js"
+      ],
+      "independent" : [
+        "./src/scripts/independent/**/*.js"
+      ]
+    },
+    "css" : [
+      "./node_modules/swiper/dist/css/swiper.min.css",
+      "./src/styles/main.scss"
+    ],
+    "fonts" : [
+      "./src/fonts/**/*"
+    ],
+    "images" : [
+      "./src/images/**/*"
+    ]
+  },
+  "jslintFiles" : [
+    "./src/scripts/main.js"
+  ],
+  "devUrl": "http://timbersage-starter-theme.timbersage.com.pt/",
+  "paths": {
+    "source" : "./src/",
+    "dist" : "./dist/"
+  },
+  "watch" : [
+    "./**/*.php",
+    "./**/*.twig"
+  ],
+  "pot"     : {
+    "text_domain" : "strings_domain",
+    "twig_files" : "./views/**/*.twig",
+    "php_files" : "./**/*.php",
+    "cacheFolder" : "./views/cache",
+    "destFolder" : "./languages",
+    "keepCache" : true
+  },
+  "zip" : {
+    "name" : "timbersage-theme.zip",
+    "files" : [
+      "./**/*",
+      "!./.git",
+      "!./.gitignore",
+      "!./views/cache/**",
+      "!./src/**",
+      "!./node_modules/**"
+    ],
+    "dest" : "../"
+  }
+}

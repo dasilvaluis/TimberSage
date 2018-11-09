@@ -30,7 +30,7 @@ global.enabled = {
   generatePOT: argv.prod,
 };
 
-global.config = require('./config.json'),
+global.config = require('./gulp/config.json'),
 global.deps   = config.dependencies,
 global.paths  = config.paths;
 
@@ -51,7 +51,7 @@ global.writeToManifest = function(directory) {
     .pipe(gulp.dest, paths.dist)();
 };
 
-require('require-dir')('./gulp-tasks');
+require('require-dir')('./gulp/tasks');
 
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
