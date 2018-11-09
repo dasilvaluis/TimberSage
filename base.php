@@ -1,7 +1,6 @@
 <?php
 
-use TimberSage\Setup;
-use TimberSage\Wrapper; ?>
+use luisms\TimberSage\Wrapper; ?>
 
 <!doctype html>
 <html <?php language_attributes(); ?>>

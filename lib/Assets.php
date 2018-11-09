@@ -1,6 +1,6 @@
 <?php
 
-namespace TimberSage;
+namespace luisms\TimberSage;
 
 class Assets {
 

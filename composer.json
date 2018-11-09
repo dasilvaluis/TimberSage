@@ -5,7 +5,7 @@
   "keywords": ["wordpress", "theme"],
   "autoload": {
     "psr-4": {
-      "TimberSage\\": "lib/"
+      "luisms\\TimberSage\\": "lib/"
     }
   },
   "require": {

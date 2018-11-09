@@ -1,6 +1,6 @@
 <?php
 
-namespace TimberSage\Taxonomy;
+namespace luisms\TimberSage\Taxonomy;
 
 class Example extends Taxonomy {
 

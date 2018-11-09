@@ -14,8 +14,6 @@ if ( file_exists( get_stylesheet_directory() . '/vendor/autoload.php' ) ) {
 	require_once get_stylesheet_directory() . '/vendor/autoload.php';
 }
 
-use TimberSage;
-
 new Timber\Timber();
 
 /**
@@ -40,9 +38,9 @@ foreach ($includes as $file) {
 unset($file, $filepath);
 
 // * Register post types
-add_action( 'init', array( '\\TimberSage\\PostType\\Registrator', 'init' ) );
+add_action( 'init', array( '\\luisms\\TimberSage\\PostType\\Registrator', 'init' ) );
 // * Register taxonomies
-add_action( 'init', array( '\\TimberSage\\Taxonomy\\Registrator', 'init' ) );
-add_filter( 'template_include', array( '\\TimberSage\\Wrapper', 'wrap' ), 109 );
-add_action( 'wp_enqueue_scripts', array( '\\TimberSage\\Assets', 'enqueue' ), 100 );
-add_action( 'after_setup_theme', array( '\\TimberSage\\Setup', 'run' ) );
+add_action( 'init', array( '\\luisms\\TimberSage\\Taxonomy\\Registrator', 'init' ) );
+add_filter( 'template_include', array( '\\luisms\\TimberSage\\Wrapper', 'wrap' ), 109 );
+add_action( 'wp_enqueue_scripts', array( '\\luisms\\TimberSage\\Assets', 'enqueue' ), 100 );
+add_action( 'after_setup_theme', array( '\\luisms\\TimberSage\\Setup', 'run' ) );

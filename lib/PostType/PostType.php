@@ -1,6 +1,6 @@
 <?php
 
-namespace TimberSage\PostType;
+namespace luisms\TimberSage\PostType;
 
 abstract class PostType {
 
