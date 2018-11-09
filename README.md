@@ -47,24 +47,19 @@ Front-end:
 1. Place project within your WordPress themes directory.
 ````shell
 @ example.com/wp-content/themes/
-$ git clone git@bitbucket.org:timbersagecreatives/timbersage-wordpress-starter-theme.git timbersage-theme
+$ git clone https://github.com/luism-s/TimberSage.git theme-name
 ````
 
-2. Install composer dependencies
+2. Install composer & npm dependencies
 ````shell
-@ example.com/wp-content/themes/timbersage-theme
+@ example.com/wp-content/themes/theme-name
 $ composer install
-````
-
-3. Install npm dependencies
-````shell
-@ example.com/wp-content/themes/timbersage-theme/src
 $ npm install
 ````
 
 3. Compile Assets
 ````shell
-@ example.com/wp-content/themes/timbersage-theme/src
+@ example.com/wp-content/themes/theme-name
 $ gulp build
 ````
 ---
