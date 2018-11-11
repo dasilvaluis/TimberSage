@@ -4,7 +4,15 @@ namespace luisms\TimberSage\PostType;
 
 class Example extends PostType {
 
+	/**
+	 * Custom Post Type SLug
+	 */
 	const CPT_SLUG = 'custom_type';
+
+
+	/**
+	 * Custom Post Type Archive Slug
+	 */
 	const CPT_ARCHIVE = 'custom-type';
 
   	public function register() {

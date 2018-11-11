@@ -4,7 +4,14 @@ namespace luisms\TimberSage\Taxonomy;
 
 class Example extends Taxonomy {
 
+	/**
+	 * Taxonomy Slug
+	 */
 	const TAX_SLUG = 'custom_category';
+
+	/**
+	 * Taxonomy Archive Slug
+	 */
 	const TAX_ARCHIVE = 'custom-category';
 
 	public function register() {
