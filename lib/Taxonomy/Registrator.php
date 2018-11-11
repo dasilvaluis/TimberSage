@@ -23,10 +23,6 @@ class Registrator {
 	}
 
 	public static function init() {
-		return self::instance();
-	}
-
-	public static function instance() {
 		if ( empty(self::$singleton) ) {
 			self::$singleton = new self;
 			self::$singleton->register_taxonomies();
