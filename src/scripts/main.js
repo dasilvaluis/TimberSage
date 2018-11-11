@@ -14,7 +14,7 @@
 
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
-  var PageFirer = {
+  var RouteCOlection = {
     // All pages
     'common': {
       init: function() {
@@ -44,16 +44,16 @@
   // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
   var UTIL = {
-    fire: function(func, funcname, args) {
+    fire: function(route, functionName, args) {
       var fire;
-      var namespace = PageFirer;
-      funcname = (funcname === undefined) ? 'init' : funcname;
-      fire = func !== '';
-      fire = fire && namespace[func];
-      fire = fire && typeof namespace[func][funcname] === 'function';
+      var namespace = RouteCollection;
+      var action = (functionName === undefined) ? 'init' : functionName;
+      fire = route !== '';
+      fire = fire && namespace[route];
+      fire = fire && typeof namespace[route][action] === 'function';
 
       if (fire) {
-        namespace[func][funcname](args);
+        namespace[route][action](args);
       }
     },
     loadEvents: function() {
@@ -61,9 +61,9 @@
       UTIL.fire('common');
 
       // Fire page-specific init JS, and then finalize JS
-      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
-        UTIL.fire(classnm);
-        UTIL.fire(classnm, 'finalize');
+      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, className) {
+        UTIL.fire(className);
+        UTIL.fire(className, 'finalize');
       });
 
       // Fire common finalize JS
