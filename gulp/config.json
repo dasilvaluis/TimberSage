@@ -1,7 +1,7 @@
 {
-  "dependencies" : {
-    "js" : {
-      "main" : [
+  "dependencies": {
+    "js": {
+      "main": [
         "./node_modules/uikit/dist/js/uikit.min.js",
         "./node_modules/uikit/dist/js/uikit-icons.min.js",
         "./node_modules/swiper/dist/js/swiper.jquery.min.js",
@@ -10,44 +10,44 @@
         "./src/scripts/pages/**/*.js",
         "./src/scripts/main.js"
       ],
-      "independent" : [
+      "independent": [
         "./src/scripts/independent/**/*.js"
       ]
     },
-    "css" : [
+    "css": [
       "./node_modules/swiper/dist/css/swiper.min.css",
       "./src/styles/main.scss"
     ],
-    "fonts" : [
+    "fonts": [
       "./src/fonts/**/*"
     ],
-    "images" : [
+    "images": [
       "./src/images/**/*"
     ]
   },
-  "jslintFiles" : [
+  "jslintFiles": [
     "./src/scripts/main.js"
   ],
-  "devUrl": "http://timbersage-starter-theme.timbersage.com.pt/",
+  "devUrl": "http://wordpress.local",
   "paths": {
-    "source" : "./src/",
-    "dist" : "./dist/"
+    "source": "./src",
+    "dist": "./dist"
   },
-  "watch" : [
+  "watch": [
     "./**/*.php",
     "./**/*.twig"
   ],
-  "pot"     : {
-    "text_domain" : "strings_domain",
-    "twig_files" : "./views/**/*.twig",
-    "php_files" : "./**/*.php",
-    "cacheFolder" : "./views/cache",
-    "destFolder" : "./languages",
-    "keepCache" : true
+  "pot": {
+    "text_domain": "strings_domain",
+    "twig_files": "./views/**/*.twig",
+    "php_files": "./**/*.php",
+    "cacheFolder": "./views/cache",
+    "destFolder": "./languages",
+    "keepCache": true
   },
-  "zip" : {
-    "name" : "timbersage-theme.zip",
-    "files" : [
+  "zip": {
+    "name": "timbersage-theme.zip",
+    "files": [
       "./**/*",
       "!./.git",
       "!./.gitignore",
@@ -55,6 +55,6 @@
       "!./src/**",
       "!./node_modules/**"
     ],
-    "dest" : "../"
+    "dest": "../"
   }
 }
