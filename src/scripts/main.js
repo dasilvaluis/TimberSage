@@ -14,9 +14,9 @@
 
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
-  var RouteCOlection = {
+  var RouteCollection = {
     // All pages
-    'common': {
+    common: {
       init: function() {
         // JavaScript to be fired on all pages
       },
@@ -25,18 +25,12 @@
       }
     },
     // Home page
-    'home': {
+    home: {
       init: function() {
         // JavaScript to be fired on the home page
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
-      }
-    },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
-      init: function() {
-        // JavaScript to be fired on the about us page
       }
     }
   };
