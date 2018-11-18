@@ -12,7 +12,6 @@ const lazypipe = require('lazypipe');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync');
 const config = require('../config.json');
-const enabled = require('../enabled.js');
 
 // ### CSS processing pipeline
 // Example
