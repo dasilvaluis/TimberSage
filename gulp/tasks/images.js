@@ -1,7 +1,7 @@
-const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
-const browserSync = require('browser-sync');
-const config = require('../config.json');
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import browserSync from 'browser-sync';
+import config from '../config.json';
 
 // ### Images
 // `gulp images` - Run lossless compression on all the images.

@@ -11,5 +11,8 @@
   "globals":{
     "jQuery": true,
     "$": true
+  },
+  "parserOptions": {
+      "sourceType": "module",
   }
 }

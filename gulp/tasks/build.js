@@ -1,5 +1,5 @@
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
 
 // ### Build
 // `gulp build` - Run all the build tasks but don't clean up beforehand.

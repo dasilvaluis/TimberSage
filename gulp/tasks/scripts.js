@@ -1,13 +1,13 @@
-const gulp = require('gulp');
-const gulpif = require('gulp-if');
-const uglify = require('gulp-uglify');
-const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
-const eslint = require('gulp-eslint');
-const merge = require('merge-stream');
-const lazypipe = require('lazypipe');
-const browserSync = require('browser-sync');
-const config = require('../config.json');
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import uglify from 'gulp-uglify';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import eslint from 'gulp-eslint';
+import lazypipe from 'lazypipe';
+import browserSync from 'browser-sync';
+import config from '../config.json';
+import enabled from '../enabled.js';
 
 // ### JS processing pipeline
 // Example
@@ -16,10 +16,10 @@ const config = require('../config.json');
 //   .pipe(jsTasks('main.js')
 //   .pipe(gulp.dest(paths.dist + 'scripts'))
 // ```
-function jsTasks(independent = false) {
+function jsTasks(filename) {
   return lazypipe()
     .pipe(() => gulpif(enabled.maps, sourcemaps.init()))
-    .pipe(() => gulpif(!independent, concat('main.js')))
+    .pipe(concat, filename)
     .pipe(() => gulpif(enabled.minify, uglify({
       compress: { drop_debugger: enabled.stripJSDebug },
     })))
@@ -41,22 +41,17 @@ gulp.task('eslint', () => {
     .pipe(eslint.format())
     // To have the process exit with an error code (1) on
     // lint error, return the stream and pipe to failAfterError last.
-    .pipe(gulpif(enabled.failJSHint, eslint.failAfterError()));
+    .pipe(gulpif(enabled.failESLint, eslint.failAfterError()));
   return output;
 });
 
 // ### Scripts
 // `gulp scripts` - Runs ESLint then compiles, combines, and optimizes JS
 gulp.task('scripts', () => {
-  const merged = merge();
-  merged.add(
-    gulp.src(config.dependencies.js.main)
-      .pipe(jsTasks())
-  );
-  merged.add(
-    gulp.src(config.dependencies.js.independent)
-      .pipe(jsTasks(true))
-  );
-  return merged.pipe(gulp.dest(`${config.paths.dist}/scripts`))
+  const output = gulp.src(config.dependencies.js)
+    .pipe(jsTasks('main.js'))
+    .pipe(gulp.dest(`${config.paths.dist}/scripts`))
     .pipe(browserSync.stream());
+
+    return output;
 });

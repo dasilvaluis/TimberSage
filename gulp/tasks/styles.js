@@ -1,17 +1,18 @@
-const gulp = require('gulp');
-const gulpif = require('gulp-if');
-const sass = require('gulp-sass');
-const less = require('gulp-less');
-const autoprefixer = require('gulp-autoprefixer');
-const cssNano = require('gulp-cssnano');
-const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
-const notify = require('gulp-notify');
-const moduleImporter = require('sass-module-importer');
-const lazypipe = require('lazypipe');
-const plumber = require('gulp-plumber');
-const browserSync = require('browser-sync');
-const config = require('../config.json');
+import gulp from 'gulp';
+import gulpif from 'gulp-if';
+import sass from 'gulp-sass';
+import less from 'gulp-less';
+import autoprefixer from 'gulp-autoprefixer';
+import cssNano from 'gulp-cssnano';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import notify from 'gulp-notify';
+import moduleImporter from 'sass-module-importer';
+import lazypipe from 'lazypipe';
+import plumber from 'gulp-plumber';
+import browserSync from 'browser-sync';
+import config from '../config.json';
+import enabled from '../enabled.js';
 
 // ### CSS processing pipeline
 // Example

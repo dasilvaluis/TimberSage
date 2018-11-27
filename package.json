@@ -23,6 +23,9 @@
     "node": ">= 8.12"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/register": "^7.0.0",
     "browser-sync": "^2.26.3",
     "del": "^2.2.2",
     "eslint": "^5.9.0",

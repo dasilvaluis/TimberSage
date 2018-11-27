@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const browserSync = require('browser-sync');
-const config = require('../config.json');
+import gulp from 'gulp';
+import browserSync from 'browser-sync';
+import config from '../config.json';
 
 // ### Watch
 // `gulp watch` - Use BrowserSync to proxy your dev server and synchronize code

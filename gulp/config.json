@@ -1,19 +1,14 @@
 {
   "dependencies": {
-    "js": {
-      "main": [
-        "./node_modules/uikit/dist/js/uikit.min.js",
-        "./node_modules/uikit/dist/js/uikit-icons.min.js",
-        "./node_modules/swiper/dist/js/swiper.jquery.min.js",
-        "./src/scripts/utils/**/*.js",
-        "./src/scripts/components/**/*.js",
-        "./src/scripts/pages/**/*.js",
-        "./src/scripts/main.js"
-      ],
-      "independent": [
-        "./src/scripts/independent/**/*.js"
-      ]
-    },
+    "js": [
+      "./node_modules/uikit/dist/js/uikit.min.js",
+      "./node_modules/uikit/dist/js/uikit-icons.min.js",
+      "./node_modules/swiper/dist/js/swiper.jquery.min.js",
+      "./src/scripts/utils/**/*.js",
+      "./src/scripts/components/**/*.js",
+      "./src/scripts/pages/**/*.js",
+      "./src/scripts/main.js"
+    ],
     "css": [
       "./node_modules/swiper/dist/css/swiper.min.css",
       "./src/styles/main.scss"

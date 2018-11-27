@@ -1,9 +1,9 @@
-var gulp = require('gulp');
-const minimist = require('minimist');
+import minimist from 'minimist';
+
 const argv = minimist(process.argv.slice(2));
 
 // CLI options
-global.enabled = {
+const enabled = {
   // Disable source maps when `--prod`
   maps: !argv.prod,
   // Fail styles task on error when `--prod`
@@ -16,8 +16,4 @@ global.enabled = {
   minify: argv.prod,
 };
 
-require('require-dir')('./gulp/tasks');
-
-gulp.task('default', ['clean'], () => {
-  gulp.start('build');
-});
+export default enabled;

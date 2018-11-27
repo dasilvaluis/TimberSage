@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const del = require('del');
-const config = require('../config.json');
+import gulp from 'gulp';
+import del from 'del';
+import config from '../config.json';
 
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.

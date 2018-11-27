@@ -1,7 +1,7 @@
-const gulp = require('gulp');
-const flatten = require('gulp-flatten');
-const browserSync = require('browser-sync');
-const config = require('../config.json');
+import gulp from 'gulp';
+import flatten from 'gulp-flatten';
+import browserSync from 'browser-sync';
+import config from '../config.json';
 
 // ### Fonts
 // `gulp fonts` - Grabs all the fonts and outputs them in a flattened directory
