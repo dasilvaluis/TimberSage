@@ -56,7 +56,7 @@
     "sass-module-importer": "^1.4.0"
   },
   "dependencies": {
-    "swiper": "^4.4.2",
+    "swiper": "^6.5.1",
     "uikit": "^3.0.0-rc.22"
   }
 }
