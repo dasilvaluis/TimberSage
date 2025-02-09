@@ -2,6 +2,8 @@
 
 **Note:** Many dependencies listed here are very outdated, and this project is un-maintained. This was based on [Sage](https://roots.io/sage/) version 8. Consider going for the current and latest version of Sage instead, and maybe take an inspirtation and adapt it to run Timber.
 
+---
+
 This theme is a fork of [Sage](https://roots.io/sage/), a WordPress starter theme based on HTML5 Boilerplate and gulp.
 
 It comes with [Timber](https://www.upstatement.com/timber/), a library for theme building with [Twig](https://twig.symfony.com/).
